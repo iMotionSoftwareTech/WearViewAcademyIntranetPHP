@@ -1,0 +1,1452 @@
+/* ==========================================================
+   GLOBAL STYLES
+   - Reset
+   - Typography
+   - Body
+   - General Layout
+========================================================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#eef3f9;
+    color:#1f2937;
+}
+
+/* ==========================================================
+   HEADER
+   - Logo
+   - Navigation
+   - User Profile Icon
+========================================================== */
+header {
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+    display: flex;
+    justify-content: space-between; /* Center the inner content container */
+    width: 100%;
+    padding: 16px calc((100% - 1100px) / 2);
+}
+
+header a {    
+    color: inherit;
+    text-decoration: none;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo i{
+    color:#315efb;
+    font-size:30px;
+}
+
+.profile i{
+    color:#315efb;
+    font-size:28px;
+}
+
+.profile i:hover{
+    color:#1e3a8a;
+}
+
+.logged-in-user {
+    display: flex; /* Changed from none to flex */
+    align-items: center;
+    gap: 10px;
+}
+
+#userGreeting {
+    font-weight: 600;
+    color: #1d2b4f;
+}
+
+#logoutLink {
+    color: #2d5bff;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+#logoutLink:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================
+   MAIN NAVIGATION
+   - Navigation Links
+   - Active Navigation States
+========================================================== */
+nav {
+    width: 100%;
+    max-width: 1100px;
+    margin: 25px auto;
+    /* Ensure no extra padding offsets it from the header alignment */
+    padding: 0;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:40px;
+    border-bottom:1px solid #d8dde8;
+}
+
+nav a{
+    display:block;
+    padding:15px 0;
+    color:#555;
+    text-decoration:none;
+}
+
+.active a{
+    color:#315efb;
+    border-bottom:3px solid #315efb;
+}
+
+#reportIssueLink,
+#viewRequestsLink,
+#viewJobsLink {
+    display: none;
+}
+
+main{
+    width:100%;
+    max-width:1100px;
+    margin:auto;
+}
+
+/* ==========================================================
+   HOME PAGE
+========================================================== */
+.hero{
+    position:relative;
+    border-radius:18px;
+    overflow:hidden;
+}
+
+.hero img{
+    width:100%;
+    display:block;
+    object-fit: cover;
+    height: 12rem;
+}
+
+.overlay {
+    display: block;
+    z-index: 1;
+    background: rgb(30, 64, 175, 0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hero-overlay{
+    position:absolute;
+    left:40px;
+    bottom:40px;
+    color:#fff;
+      background-image: linear-gradient(to right, var(--tw-gradient-stops));
+    --tw-gradient-to: rgb(30 58 138 / 0.3) var(--tw-gradient-to-position);
+        --tw-gradient-from: rgb(30 58 138 / 0.8) var(--tw-gradient-from-position);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+    padding-left: 2rem;
+    padding-right: 2rem;
+    z-index: 2;
+}
+
+.hero-overlay h2{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.quick-links{
+    margin:50px 0;
+}
+
+.quick-links h2{
+    margin-bottom:25px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:#fff;
+    border-radius:14px;
+    padding:30px;
+    text-decoration:none;
+    color:#274472;
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
+}
+
+.card i{
+    font-size:36px;
+    margin-bottom:20px;
+}
+
+.blue{color:#3366ff;}
+.green{color:#0ba96b;}
+.purple{color:#8b3dff;}
+.orange{color:#ef7d19;}
+.red{color:#ff4b55;}
+.teal{color:#008b8b;}
+
+.announcements h2{
+    margin-bottom:20px;
+}
+
+.announcement {
+    background: #fff;
+    padding: 22px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    border-left: 6px solid;
+    color: #1f2937; /* Force dark text color */
+}
+
+.announcement h3 {
+    color: #1f2937 !important;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.announcement p {
+    color: #4b5563 !important; /* Slightly lighter dark gray for body copy */
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.announcement.blue{
+    border-color:#3366ff;
+}
+
+.announcement.orange{
+    border-color:#ff9800;
+}
+
+.announcement.green{
+    border-color:#0ba96b;
+}
+
+footer {
+    margin-top: 60px;
+    background: #fff;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    /* Cleanly align the columns inside the 1100px grid limit */
+    padding: 60px calc((100% - 1100px) / 2); 
+    border-bottom: 1px solid #eef3f9; /* Creates a clean transition above the copyright */    
+}
+
+footer h4{
+    margin-bottom:15px;
+}
+
+footer a{
+    display:block;
+    text-decoration:none;
+    color:#315efb;
+    margin-bottom:10px;
+}
+
+.copyright {
+    background: #fff;
+    text-align: center;
+    padding: 25px;
+    border-top: 1px solid #eee;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.privacy-links {
+    padding-top: 0.7em;
+}
+
+/* ==========================================================
+   LOGIN PAGE
+========================================================== */
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    min-height: 60vh; /* Vertical breathing room on desktop */
+}
+
+#loginFormContainer, #registerFormContainer {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Smooth, modern drop shadow */
+    padding: 40px;
+    width: 100%;
+    max-width: 400px; /* Golden-ratio width for card layouts */
+    border: 1px solid #e2e8f0;
+}
+
+#loginFormContainer h2, #registerFormContainer h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 24px;
+    text-align: center; /* Center-align header inside the card */
+}
+
+#loginForm, #registerForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Automatically handles vertical element spacing */
+}
+
+.formMarginSplit {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Perfectly gaps label from the input field */
+}
+
+.formMarginSplit label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+/* Beautiful, styled input fields */
+.formMarginSplit input[type="text"],
+.formMarginSplit input[type="password"], 
+.formMarginSplit input[type="email"],
+.formMarginSplit select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #d8dde8;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #1f2937;
+    background-color: #f8fafc;
+    transition: all 0.2s ease-in-out;
+    outline: none;
+}
+
+/* Subtle focus glow effects */
+.formMarginSplit input[type="text"]:focus,
+.formMarginSplit input[type="password"]:focus,
+.formMarginSplit input[type="email"]:focus,
+.formMarginSplit select:focus {
+    border-color: #315efb;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(49, 94, 251, 0.15);
+}
+
+/* Clean, modern full-width action button */
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: #315efb;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background: #1e3a8a;
+}
+ 
+ .btn-confirm {
+    background-image: linear-gradient(rgb(5, 150, 105), rgb(5, 150, 105)) !important;
+ }
+
+ .btn-submit {
+    background-image: linear-gradient(rgb(29, 78, 216), rgb(29, 78, 216)) !important;      
+ }
+
+ .register-link, .login-link {
+    padding-top: 1em;
+ }
+
+ /* ==========================================================
+   IT SUPPORT PAGE
+========================================================== */
+.quick-help {
+    margin:50px 0;
+}
+
+.quick-help h2{
+    margin-bottom:20px;
+}
+
+.it-Resources {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+    margin-top: 1.5rem;
+}
+
+.btn-report {
+    background-image: linear-gradient(rgb(29, 78, 216), rgb(29, 78, 216)) !important;
+    background-clip: border-box !important;
+    color: rgb(255, 255, 255) !important;
+    caret-color: rgb(255, 255, 255) !important;
+    font-family: YAD1aU3sLnI_0, _fb_, auto !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+    font-size: 1rem !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    gap: 0.5rem;
+    align-items: center;
+    cursor:pointer;
+}
+
+.btn-status {
+    background-image: linear-gradient(rgb(226, 232, 240), rgb(226, 232, 240)) !important;
+    background-clip: border-box !important;
+    color: rgb(30, 58, 95) !important;
+    --canva-color: #1e3a5fff;
+    caret-color: rgb(30, 58, 95) !important;
+    font-family: YAD1aU3sLnI_0, _fb_, auto !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+    font-size: 1rem !important;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    gap: 0.5rem;
+    align-items: center;
+    cursor:pointer;
+}
+
+.help-cards {
+    display:grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.help-card { 
+    background:#fff;
+    padding:1.25rem;
+    text-decoration:none;
+    color:#274472;
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
+    border-radius: 0.75rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.help-card i {
+    display: block;
+    font-size: x-large;
+    width: 24px;
+    height: 24px;
+    margin-bottom: 0.75rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.help-card p
+{
+    text-align: center;
+}
+
+/* --- IT Support Team Card Custom Design --- */
+.support-info-section {
+    margin-bottom: 50px;
+}
+
+.support-team-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 30px 40px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .03);
+    display: flex;
+    justify-content: space-between; /* Pushes contact details left, hours right */
+    align-items: center; /* Centers both blocks vertically */
+    width: 100%;
+}
+
+/* Flex wrapper for Icon + Text block */
+.support-details {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Adds space between headphone icon and the text */
+}
+
+/* Custom styled icon color and sizing */
+.support-icon {
+    color: #315efb;
+    font-size: 32px;
+}
+
+.support-text h3 {
+    font-size: 1.15rem;
+    color: #1f2937;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.support-text p {
+    color: #556275 !important; /* Muted gray text color */
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* Typography for the right-hand availability block */
+.support-hours p {
+    color: #556275 !important;
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+
+
+/* ==========================================================
+   REPORT ISSUE PAGE
+========================================================== */
+.issue-section {
+    padding: 40px 0;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.issue-container {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    padding: 40px;
+    border: 1px solid #e2e8f0;
+}
+
+.issue-container h2 {
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 6px;
+}
+
+.issue-subtitle {
+    color: #6b7280;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+}
+
+/* Form Grid Architecture */
+#reportIssueForm {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+/* Input, Select, and Textarea styling */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #d8dde8;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #1f2937;
+    background-color: #fff;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    font-family: inherit;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* Form input placeholder styles */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #9ca3af;
+}
+
+/* Custom interactive styling matching corporate blue */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #315efb;
+    box-shadow: 0 0 0 3px rgba(49, 94, 251, 0.12);
+}
+
+/* Submit Button Placement and Design */
+.btn-submit-issue {
+    align-self: flex-start; /* Keeps the button left-aligned precisely like the image */
+    background: #315efb;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-submit-issue:hover {
+    background: #1e3a8a;
+}
+
+/* ==========================================================
+   VIEW REQUESTS PAGE
+========================================================== */
+
+/* --- DYNAMIC RECENT REQUESTS LOG --- */
+.requests-filter-bar {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.requests-filter-bar input, 
+.requests-filter-bar select {
+    padding: 10px 14px;
+    border: 1px solid #d8dde8;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    background-color: #fff;
+}
+
+.requests-filter-bar input {
+    flex-grow: 1;
+}
+
+.requests-section {
+    padding: 30px 0;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.requests-section h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 20px;
+}
+/* Card Container */
+.requests-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Main Request Card Styling */
+.request-card {
+    background-color: #ffffff !important; /* Forces clean white card background */
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb; /* Soft outer card border */
+    border-left-width: 6px;    /* Thick accent bar on the left */
+    margin-bottom: 1rem;
+}
+
+/* Status-Specific Accent Borders (Left Only) */
+.request-card.status-open {
+    border-left-color: #f97316; /* Orange accent */
+}
+
+.request-card.status-in-progress {
+    border-left-color: #3b82f6; /* Blue accent */
+}
+
+.request-card.status-resolved {
+    border-left-color: #10b981; /* Green accent */
+}
+
+/* Typography Overrides */
+.request-title {
+    margin: 0 0 0.35rem 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111827; /* Dark black/gray text */
+}
+
+.request-meta {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #9ca3af; /* Light gray metadata text */
+}
+
+/* Badge Styles */
+.status-badge {
+    padding: 0.4rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.status-badge-open {
+    background-color: #fef3c7;
+    color: #b45309;
+}
+
+.status-badge-in-progress {
+    background-color: #dbeafe;
+    color: #1d4ed8;
+}
+
+.status-badge-resolved {
+    background-color: #d1fae5;
+    color: #047857;
+}
+.btn-page {
+    background: #fff;
+    border: 1px solid #d8dde8;
+    color: #4b5563;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn-page:hover:not(:disabled) {
+    background: #f8fafc;
+    border-color: #315efb;
+    color: #315efb;
+}
+
+.btn-page:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #f1f5f9;
+}
+
+.page-info {
+    font-size: 0.9rem;
+    color: #4b5563;
+    font-weight: 600;
+}
+
+/* ==========================================================
+   VIEW JOBS PAGE
+========================================================== */
+.jobs-section{
+
+    max-width:1300px;
+    margin:auto;
+    padding:40px 20px;
+
+}
+
+.page-header{
+
+    margin-bottom:25px;
+
+}
+
+.jobs-toolbar{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-bottom:25px;
+
+}
+
+.toolbar-left,
+.toolbar-right{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+}
+
+.search-input{
+
+    width:320px;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:6px;
+
+}
+
+.jobs-toolbar select{
+
+    padding:12px;
+    border-radius:6px;
+}
+
+.jobs-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding-top: 2em;
+}
+
+.job-card{
+
+    background:#fff;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,.1);
+    padding:20px;
+}
+
+.job-card h3{
+
+    margin-bottom:12px;
+}
+
+.job-card p{
+
+    margin:8px 0;
+}
+
+.job-status{
+
+    display:inline-block;
+    padding:5px 12px;
+    border-radius:20px;
+    color:white;
+    font-size:.85rem;
+    font-weight:bold;
+}
+
+.status-open{
+
+    background:#d9534f;
+
+}
+
+.status-progress{
+
+    background:#f0ad4e;
+
+}
+
+.status-completed{
+
+    background:#5cb85c;
+
+}
+
+.job-actions{
+
+    margin-top:20px;
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+
+}
+
+.job-actions button{
+
+    flex:1;
+    padding:10px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+
+}
+
+.job-action{
+    flex-shrink:0;
+}
+
+.btn-view{
+
+    background:#007bff;
+    color:white;
+
+}
+
+.btn-status{
+
+    background:#198754;
+    color:white;
+
+}
+
+.pagination{
+
+    margin-top:35px;
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    flex-wrap:wrap;
+
+}
+
+.pagination button{
+
+    padding:10px 16px;
+    border:none;
+    background:#eee;
+    cursor:pointer;
+    border-radius:5px;
+
+}
+
+.pagination button.active{
+
+    background:#0056b3;
+    color:white;
+
+}
+
+.job-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+    background:#fff;
+    padding:22px 26px;
+    border-radius:8px;
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+    box-sizing:border-box;
+}
+
+.job-info h3{
+
+    margin:0;
+
+    font-size:22px;
+
+}
+
+.job-info p{
+
+    margin:8px 0 6px;
+
+    color:#333;
+
+}
+
+.job-info small{
+
+    color:#999;
+
+}
+
+.job-action{
+
+    display:flex;
+    align-items:center;
+
+}
+
+.complete-btn{
+
+    background:#19a974;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:4px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+
+.completed-badge{
+
+    background:#9dd8c2;
+
+    color:white;
+
+    padding:10px 18px;
+
+    border-radius:4px;
+
+    font-weight:600;
+
+}
+
+.job-tabs button {
+    background: #e9ecef;
+    color: #333;
+    border-radius: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.job-tabs button.active {
+    background: #2d5be3;
+    color: white;
+}
+
+.job-details{
+    flex:1;
+    margin-right:30px;
+}
+
+/* ==========================================================
+   SUPPORT ISSUE MODAL
+========================================================== */
+
+/* Hide modal by default */
+#supportTicketModal {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.65);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Dynamic display trigger when JavaScript opens the modal */
+.modal.is-visible,
+.modal.show,
+.modal[style*="display: block"] {
+    display: flex !important;
+}
+
+/* Inner Centered Card Container */
+.modal-content {
+    background: #ffffff;
+    width: 100%;
+    max-width: 650px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Modal Headers */
+.modal-content h2, 
+.modal-header h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #2c3e50;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 10px;
+}
+
+/* Form Controls Inside Modal */
+.modal-content label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #495057;
+}
+
+.modal-content input[type="text"],
+.modal-content select,
+.modal-content textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    background-color: #f8f9fa;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.modal-content input:focus,
+.modal-content select:focus,
+.modal-content textarea:focus {
+    border-color: #2d5be3;
+    outline: none;
+    background-color: #fff;
+}
+
+.modal-content textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Modal Actions & Buttons */
+.modal-actions, 
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #e9ecef;
+}
+
+.modal-content button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.modal-content button[type="submit"],
+.modal-content .btn-save {
+    background-color: #2d5be3;
+    color: #ffffff;
+}
+
+.modal-content button[type="button"].btn-close,
+.modal-content .btn-secondary {
+    background-color: #6c757d;
+    color: #ffffff;
+}
+
+.modal-content .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #6c757d;
+    cursor: pointer;
+}
+
+/* --- Fix for Large-Sized viewports / Large Desktops (above 1024px) --- */
+/* ==========================================================================
+   LARGE-SIZE SCREEN OPTIMISATION (Larger Desktop up to 1200px)
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+    header {
+        padding: 20px 5%;
+    }
+    footer {
+        padding: 50px 5%;
+    }
+
+    .help-cards {
+        /* Drops from 5 columns to 3 columns so the text and icons don't squish */
+        grid-template-columns: repeat(3, minmax(0, 1fr)); 
+        gap: 20px;
+    }
+
+    /* Keeps the action buttons aligned with our new main padding bounds */
+    .it-Resources {
+        padding: 0;
+    }
+}
+
+/* --- Fix for Mid-Sized viewports / Small Desktops (like 962px) --- */
+/* ==========================================================================
+   MID-SIZE SCREEN OPTIMISATION (Tablets & Small Desktops up to 1024px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    /* 1. Add safe layout padding to the main content wrapper */
+    main {
+        padding: 0 24px;
+    }
+
+    /* 2. Fix Homepage Quick Links Grid */
+    .cards {
+        grid-template-columns: repeat(2, 1fr); /* Drop from 3 columns to 2 */
+        gap: 20px;
+    }
+
+    /* 3. Fix IT Support Quick Help Topics Grid */
+    .help-cards {
+        grid-template-columns: repeat(3, minmax(0, 1fr)); /* Drop from 5 columns to 3 */
+        gap: 20px;
+    }
+
+    /* 4. Ensure sections don't force overflow margins */
+    .quick-links, .quick-help, .it-Resources {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0;
+    }
+
+    /* 5. Clean up the Header and Footer spacing to match */
+    header {
+        padding: 16px 24px;
+    }
+    footer {
+        padding: 50px 24px;
+    }
+
+    nav {
+        margin: 10px 0;
+        padding: 0 20px;
+    }
+
+    nav ul {
+        gap: 20px;
+        overflow-x: auto;
+        white-space: nowrap; /* Prevents menu wrap issues */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .issue-section {
+        padding: 40px 24px;
+    }
+
+    .requests-section { padding: 30px 24px; }
+}
+
+/* --- Fix for Small-Sized viewports / Smartphones or tablets (like 768px) --- */
+/* ==========================================================================
+   SMALL-SIZE SCREEN OPTIMISATION (Small Tablets & Snmartphones up to 768px)
+   ========================================================================== */
+@media(max-width:768px){
+   header {
+        padding: 15px 20px;
+    }
+
+    .logo h1 {
+        font-size: 1.2rem; /* Slightly smaller logo text on narrow screens */
+    }
+
+    nav {
+        margin: 10px 0;
+        padding: 0 20px;
+    }
+
+    nav ul {
+        gap: 20px;
+        overflow-x: auto;
+        white-space: nowrap; /* Prevents menu wrap issues */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .hero {
+        margin: 0 15px 25px 15px;
+        border-radius: 12px;
+    }
+
+    .hero img {
+        height: 12rem; /* Shorter height looks better on narrow devices */
+    }
+
+    .hero-overlay {
+        padding: 1.25rem;
+    }
+
+    .hero-overlay h2 {
+        font-size: 1.5rem; /* Downsize header text so it doesn't wrap/overflow */
+    }
+
+    .hero-overlay p {
+        font-size: 0.85rem;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 0 15px;
+    }
+
+    .quicklinks {
+        margin:0;
+    }
+
+    .quick-links h2, .announcements h2 {
+        padding-left: 15px; /* Aligns headings with card container gutters */
+    }
+
+    .announcements {
+        padding: 0 15px;
+    }
+
+    footer{
+        grid-template-columns:1fr;
+        gap:35px;
+        padding:40px 20px;
+    }
+
+    .w-auto {
+        width: auto;
+    }
+
+    .quick-help h2 {
+        padding-left: 15px;
+        margin-bottom: 15px;
+    }
+
+    .help-cards {
+        grid-template-columns:repeat(3,1fr); /* Clean 2 columns on mobile/tablet */
+        gap: 15px;
+        padding: 0 15px;
+    }
+
+    /* Forces the 5th help card to stretch beautifully full-width for symmetry */
+    .help-card:last-child:nth-child(odd) {
+        grid-column: span 2;
+    }
+
+    .it-Resources {
+        padding: 0 15px;
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+    }    
+
+    .support-info-section {
+        padding: 0 15px; /* Keeps card from touching mobile screen edges */
+    }
+    
+    .support-team-card {
+        flex-direction: column; /* Stacks layout vertically on mobile screens */
+        align-items: flex-start;
+        gap: 15px;
+        padding: 25px;
+    }
+    
+    .support-details {
+        align-items: flex-start; /* Aligns icon to top of text block on mobile */
+        gap: 15px;
+    }
+    
+    .support-hours {
+        padding-left: 40px; /* Aligns hours text with contact text under icon */
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr; /* Stacks columns cleanly into 1 vertical column */
+        gap: 20px;
+    }
+    
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+
+    .issue-container {
+        padding: 25px 20px;
+    }
+
+    .btn-submit-issue {
+        width: 100%; /* Stretches across layout for thumb-friendly interaction on phone screens */
+        text-align: center;
+    }
+
+    .request-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 20px;
+    }
+    
+    .status-badge {
+        align-self: flex-start;
+    }
+
+    .jobs-toolbar{
+
+    flex-direction:column;
+    align-items:stretch;
+
+    }
+
+    .toolbar-left,
+    .toolbar-right{
+
+    width:100%;
+    flex-direction:column;
+
+    }
+
+    .search-input{
+
+    width:100%;
+
+    }
+
+    .jobs-grid{
+
+    grid-template-columns:1fr;
+
+    }
+
+    .job-row{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .job-action{
+
+        width:100%;
+
+        margin-top:16px;
+
+        justify-content:flex-end;
+
+    }
+}
+
+/* --- Fix for Extra Small-Sized viewports / Smartphones (like 480px) --- */
+/* ==========================================================================
+   EXTRA SMALL-SIZE SCREEN OPTIMISATION (Smaller smartphones up to 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+    .login-section {
+        padding: 30px 10px;
+    }
+    
+    #loginFormContainer, #registerFormContainer {
+        padding: 30px 20px;
+        border-radius: 12px;
+    }
+    .help-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
